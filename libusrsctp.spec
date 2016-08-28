@@ -5,15 +5,13 @@
 Summary:	Userland SCTP stack
 Summary(pl.UTF-8):	Stos SCTP w przestrzeni użytkownika
 Name:		libusrsctp
-Version:	0.9.2.1
-%define	snap	20151025
-%define	gitref	6071a9a41925c13dd4306bb6434bcce250bdecb2
-%define	rel	1
-Release:	0.%{snap}.%{rel}
+Version:	0.9.3.0
+Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	https://github.com/sctplab/usrsctp/archive/%{gitref}/%{name}-%{version}.tar.gz
-# Source0-md5:	230c42a5713f43e1f006dcf02cf86cf3
+#Source0Download: https://github.com/sctplab/usrsctp/releases
+Source0:	https://github.com/sctplab/usrsctp/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	ffc5f1ab5be0765880479c9c3aebc794
 URL:		https://github.com/sctplab/usrsctp
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -53,7 +51,7 @@ Static usrsctp library.
 Statyczna biblioteka usrsctp.
 
 %prep
-%setup -q -n usrsctp-%{gitref}
+%setup -q -n usrsctp-%{version}
 
 %build
 %{__libtoolize}
@@ -61,7 +59,9 @@ Statyczna biblioteka usrsctp.
 %{__autoconf}
 %{__automake}
 %configure \
-	%{!?with_static_libs:--disable-static}
+	%{!?debug:--disable-debug} \
+	%{!?with_static_libs:--disable-static} \
+	--disable-warnings-as-errors
 %{__make}
 
 %install
