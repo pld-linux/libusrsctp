@@ -5,13 +5,13 @@
 Summary:	Userland SCTP stack
 Summary(pl.UTF-8):	Stos SCTP w przestrzeni użytkownika
 Name:		libusrsctp
-Version:	0.9.3.0
+Version:	0.9.5.0
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/sctplab/usrsctp/releases
 Source0:	https://github.com/sctplab/usrsctp/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	ffc5f1ab5be0765880479c9c3aebc794
+# Source0-md5:	9da8688d84668b86c6cdbb759b500985
 URL:		https://github.com/sctplab/usrsctp
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE.md README.md
 %attr(755,root,root) %{_libdir}/libusrsctp.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libusrsctp.so.1
+%attr(755,root,root) %ghost %{_libdir}/libusrsctp.so.2
 
 %files devel
 %defattr(644,root,root,755)
